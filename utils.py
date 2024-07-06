@@ -24,14 +24,14 @@ def plot_from_results_df(nvals, df):
     colorblind_palette = ["#D81B60", "#1E88E5", "#FFC107", "#004D40"]
     sns.set_palette(sns.color_palette(colorblind_palette))
     
-    plt.rcParams.update({'font.size': 14})
+    plt.rcParams.update({'font.size': 16})
 
     distribution_descriptions = df['Distribution'].unique()
 
     for distribution in distribution_descriptions:
-        plt.figure(figsize=(5, 3))
+        plt.figure(figsize=(6, 4))
 
-        sns.lineplot(data=df[df['Distribution'] == distribution], x='N', y='Wasserstein Distance', ci='sd', estimator='mean', linewidth=2.5, label='Experimental Result')
+        sns.lineplot(data=df[df['Distribution'] == distribution], x='N', y='Wasserstein Distance', ci='sd', estimator='mean', linewidth=2.5, label='Alg. 2')
 
         nvals = df[df['Distribution'] == distribution]['N'].unique()
 
@@ -39,8 +39,8 @@ def plot_from_results_df(nvals, df):
         plt.loglog(nvals, 1/np.sqrt(nvals), label='1/sqrt(n)', linestyle='--', linewidth=1.5)
         plt.loglog(nvals, np.log(nvals)/nvals, label='log(n)/n', linestyle='--', linewidth=1.5)
 
-        plt.xlabel('k')
-        plt.ylabel('Wasserstein Distance')
+        plt.xlabel(r'$k$')
+        plt.ylabel(r'$W_1$ distance')
         plt.title(f'Distribution: {distribution}')
         plt.legend()
 
