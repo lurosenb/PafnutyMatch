@@ -2,3 +2,6 @@ cvxpy
 scipy
 Mosek
 SciencePlots
+folktables
+ucimlrepo
+scikit-learn

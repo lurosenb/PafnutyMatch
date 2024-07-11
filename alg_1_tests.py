@@ -1,3 +1,5 @@
+## NOTE: To depracate, keeping for parity with paper submission.
+
 from distributions import distributions, distribution_descriptions, nvals
 from utils import load_results, save_results
 
